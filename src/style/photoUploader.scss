@@ -1,0 +1,178 @@
+@import 'Variable';
+@import 'mixIn';
+
+.photoUploader {
+    background: $gray-color7;
+    .style-upload{
+        border: 1px solid $gray-color4;
+        width: 200px;
+        text-align: center;
+        cursor: pointer;
+        background: $white-color;
+        .icon-plus{
+            color: #d01d15;
+            font-size: 5em;
+            line-height: initial;
+            padding: 0 0 21px;
+            font-weight: bold;
+        }
+        .txt-fot{
+            font-size: 0.75rem;
+            border-top: 1px solid $gray-color4;
+            padding: 6px 0 4px;
+        }
+       
+    }
+    .crop-txt{
+        font: 0.875rem 'Open Sans';
+        margin: 7px 0;
+        color: $white-color;
+    }
+
+    .panelcroparea{
+        width: 700px;
+        margin: 0 auto;
+    }
+    .cropper{
+        background: $gray-color8;
+        width: 700px;
+        height: 350px;
+        margin: 0px auto 5px;
+    }
+
+    .upload-tag{
+        @include desktop{display: flex;}
+        .upload-textbox{
+            display: inline-block;
+            width: calc(100% - 110px);
+           
+        }
+        input{
+            height: 30px;
+            border-radius: 3px 0 0 3px;
+        }
+        .tag-btn{
+            width: 100px;
+            border-radius: 0 3px 3px 0;
+        }
+        .tagged{
+            border-color: $blue-color5 !important;
+            background-color: $blue-color5 !important;
+            color: $white-color !important;
+        }
+    }
+
+    .btn-back{
+        cursor: pointer;
+        font-family: 'Open Sans';
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    
+    .loader-wrapper{
+        @include desktop{display:flex;}
+        .img-thumb-panel{
+                margin: 25px 20px 0 0;
+                width: 200px;
+                @include position(relative);  
+                height: 100%;
+            .img-thumb{
+                width: 195px;
+                display: inline-block;
+                margin-bottom:5px;
+                @include position(relative);
+                border:2px solid $white-color;
+                border-radius: 5px;
+                overflow: hidden;
+                .icon-fot{
+                    i{
+                        @include position(absolute, $bottom: 5px, $right: 5px);
+                        color: $white-color;
+                        font-size: 1.25rem;
+                    }
+                }
+                &.active{
+                    border:2px solid $gray-color3;
+                }
+            }
+                .slick-list{
+                    .slick-track{height: auto !important}
+                }
+                .slick-arrow{
+                    @include position(absolute, $left: 50%);
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    display: inline-block;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    &:before{
+                        display: none;
+                    }
+                }
+                .slick-prev{
+                    @extend .slick-arrow;
+                    border-bottom: 12px solid $gray-color3;
+                    top: -25px;
+                }
+                .slick-next{
+                    @extend .slick-arrow;
+                    border-top:12px solid $gray-color3;
+                    top: 105%;
+                    transform: translate(-50% ,-100%);
+                }
+        }
+
+    }
+
+   .uploadtxt{
+    color: $white-color;
+    font-family: 'Open Sans';
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-right: 10px;
+   }
+
+    .btn-cropper-section{
+        display: flex;
+        a{
+            background: $gray-color8;
+            color: $white-color;
+            font-size: 0.9rem;
+            flex-grow: 1;
+            margin: 0 3px;
+            text-align: center;
+            padding: 7px;
+            text-transform: uppercase;
+            font-family: 'Open Sans';
+            border-radius: 3px;
+            &:hover,&.active{
+                background: rgba($gray-color8,0.4);
+                text-decoration: none; 
+            }
+        }
+    }
+    
+    .title_photouploader{
+            .txt-kalakalphoto{
+                font-size: 1rem;
+                color: $white-color;
+                font-family: 'Open Sans';
+                margin-bottom: 15px;
+            }
+            .back-btn{display: none}
+            .batch-upload{
+                font-family: 'Open Sans';
+                text-transform: uppercase;
+                a{
+                    color:$gray-color;
+                    padding: 0 8px;
+                    text-transform: capitalize;
+                    i{
+                        margin-right: 5px;
+                        color: $white-color;
+                    }
+                }
+            }
+    }
+}

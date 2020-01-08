@@ -1,0 +1,405 @@
+@import 'Variable';
+@import 'mixIn';
+
+.selectstyle{
+  width: 100%;
+}
+
+.cusSelect{
+    .cusSelect__control{border-radius: 3px;}
+    .cusSelect__option{
+      font: 0.875rem 'Open Sans';
+    }
+    .cusSelect__menu{
+      .cusSelect__option--is-selected{
+        background-color: $red-color;
+      }
+      @include desktop {
+        .cusSelect__option:first-child{
+            display: none;
+        }
+      }
+      @include mobile{
+        @include position(fixed, $top:0, $left:0);
+        //z-index: 99999999;
+        background: rgba($black-color, 0.9);
+        z-index: 9;
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        padding-top: 85px;
+        .cusSelect__menu-list{
+          background: $white-color;
+          width: calc(100% - 10px);
+          max-width: 500px;
+          max-height: calc(100vh - 125px);
+          margin: 5px auto 0;
+          overflow-y: auto;
+          padding-top: 0;
+          padding-bottom: 0;
+          color: $black-color;
+          text-align: left;
+          .cusSelect__option:first-child{
+            background: $red-color;
+            pointer-events: none;
+            color: $white-color;
+            line-height: initial;
+            @include position(fixed, $top:54px);
+            width: calc(100% - 10px);
+            max-width: 500px;
+            font: 0.875rem 'Open Sans';
+            padding:10px;
+            overflow: hidden;
+            border-radius: 3px 3px 0 0;
+            &:after{
+              content: '+';
+              background: transparent;
+              border: 0;
+              font-size: 2rem;
+              line-height: 10px;
+              cursor: pointer;
+              pointer-events: auto;
+              @include vendor-prefixes(transform, rotate(45deg));
+              display: block;
+              @include position(absolute, $top: -12px, $right: -18px);
+              padding: 25px;
+            }
+            &:hover{
+              &:after{
+                opacity: 0.8;
+              }
+            }
+          }
+          .cusSelect__option:not(:first-child){
+            border-bottom: 1px solid rgba($black-color, 0.2);
+            font: 0.75rem 'Open Sans';
+            padding: 10px 10px;
+            width: 100%;
+            @include position(relative);
+            background: $white-color;
+            cursor: pointer;
+            &:hover{
+              background: rgba($black-color, 0.02);
+            }
+            &:after{
+              content: '';
+              background-color: $gray-color16;
+              width: 14px;
+              height: 14px;
+              border: 4px solid $gray-color16;
+              display: block;
+              @include vendor-prefixes(border-radius, 100%);
+              @include position(absolute, $top:10px, $right:10px);
+            }
+            &.cusSelect__option--is-selected{
+              color: initial;
+              &:after{
+                border-color: #0071e6;
+                background: $white-color;
+              }
+            }
+          }
+        }
+      }
+    }
+    .cusSelect__control{
+      box-shadow: none;
+      min-height: initial;
+      .cusSelect__value-container{
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+    .cusSelect__indicators{
+      min-width: 30px;
+      min-height: 36px;
+      padding-top: 3px;
+      justify-content: center;
+      @include mobile{
+        min-width: 30px;
+        min-height: auto;
+      }
+    }
+    .cusSelect__dropdown-indicator{
+      border-color: $red-color transparent transparent;
+      border-style: solid;
+      border-width: 8px 8px 2.5px;
+      display: inline-block;
+      height: 0;
+      width: 0;
+      padding: 0;
+      @include position(relative);
+      svg{
+        display: none;
+      }
+      @include mobile{
+        border-width: 6px 6px 2.5px;
+      }
+    }
+    .cusSelect__menu{z-index: 2;}
+
+    .blackSelect{
+      border-radius: 3px;
+      &.m_w{
+        width: 200px;
+        @include mobile{width: 105px;}
+      }
+      outline: 0;
+      .cusSelect__indicator-separator{
+        display: none;
+      }
+      .cusSelect__clear-indicator{
+        display: none;
+      }
+      .cusSelect__placeholder, .cusSelect__single-value{
+        color: $white-color;
+        text-overflow: initial;
+        @include mobile{font-size: 10px;}
+      }
+      .cusSelect__menu-list{color: $black-color;text-align: left;z-index: 2;}
+      .cusSelect__control{
+        border-radius: 3px;
+        background: transparent;
+        border: 0;
+      }
+      .cusSelect__value-container{
+        padding: 8px;
+        @include mobile{padding: 0 5px;}
+      }
+      .cusSelect__value-container--is-multi{
+        height: 30px;
+        padding: 0;
+      }
+      .cusSelect_disable{opacity: 0.3;}
+
+      &.graySelect{
+        .cusSelect__control{
+          background: $black-color9;
+          border-radius: 3px;
+        }
+        .cusSelect__single-value{
+          color: $white-color;
+          font: 0.75rem/36px 'Open Sans';
+          opacity: 0.5;
+        }
+        .cusSelect__indicators{
+            @include mobile{min-height: 30px;}
+            .cusSelect__dropdown-indicator {
+               border-color: rgba(255, 255, 255, 0.5) transparent transparent;
+               @include mobile{border-width: 6px 6px 2.5px}
+            }
+          }
+      }
+
+      &.whiteSelect{
+        border-radius: 3px;
+        .cusSelect__indicators{
+          min-width: 36px;
+          min-height: 34px;
+          border-left: 1px solid #ccc;
+          @include mobile{min-height: 30px}
+        }
+        border: 1px solid #ced4da;
+        .cusSelect__placeholder, .cusSelect__single-value{
+          color: #ccc;
+          font: 0.75rem 'Open Sans';
+        }
+        .cusSelect__value-container{
+          padding: 4px;
+          @include mobile{padding: 0 8px;}
+        }
+      }
+
+      
+    }
+    .graySelect{
+      .cusSelect__control{
+        background-color: rgba($black-color2, 0.7);
+        border: 0;
+        .cusSelect__single-value, .cusSelect__value-container{
+          font-size: 0.875rem;
+          @include mobile{
+            font-size: 0.75rem;
+          }
+        }
+        .cusSelect__indicator-separator{
+          display: none;
+        }
+      }
+    }
+}
+
+
+
+.langSelect{
+  .langSelect__menu{
+      @include position(fixed, $top:0, $left:0);
+      //z-index: 99999999;
+      background: rgba($black-color, 0.9);
+      z-index: 5;
+      width: 100%;
+      height: 100%;
+      padding-top: 77px;
+      .langSelect__menu-list{
+        background: $white-color;
+        width: calc(100% - 10px);
+        max-width: 500px;
+        max-height: calc(100vh - 125px);
+        margin: 0 auto 0;
+        overflow-y: auto;
+        text-transform: uppercase;
+        padding-top: 0;
+        padding-bottom: 0;
+        color: $black-color;
+        text-align: left;
+        position: relative;
+        overflow-x: hidden;
+        &:before{
+          content: '+';
+          background: transparent;
+          border: 0;
+          font-size: 2rem;
+          line-height: 10px;
+          cursor: pointer;
+          @include vendor-prefixes(transform, rotate(45deg));
+          display: block;
+          @include position(absolute, $top:-15px, $right:-20px);
+          padding: 25px;
+          z-index: 999;
+          color: $white-color;
+      }
+        .langSelect__option{
+          border-bottom: 1px solid rgba($black-color, 0.2);
+          font: 0.75rem 'Open Sans';
+          padding: 10px 10px;
+          width: 100%;
+          @include position(relative);
+          background: $white-color;
+          cursor: pointer;
+          &:first-child{
+            padding-top:46px;
+            &:before{
+              background: $red-color;
+              pointer-events: none;
+              color: $white-color;
+              line-height: initial;
+              @include position(absolute, $top:0, $left:0);
+              width: 100%;
+              max-width: 500px;
+              font: 0.875rem 'Open Sans';
+              padding:10px;
+              overflow: hidden;
+              content: 'Language';
+              pointer-events: none;
+            }
+            &:after{
+              top: 45px;
+            }
+          }
+
+          &:hover{
+            background: rgba($black-color, 0.02);
+          }
+          &:after{
+            content: '';
+            background-color: $gray-color16;
+            width: 14px;
+            height: 14px;
+            border: 4px solid $gray-color16;
+            display: block;
+            @include vendor-prefixes(border-radius, 100%);
+            @include position(absolute, $top:10px, $right:10px);
+          }
+          &.langSelect__option--is-selected{
+            color: initial;
+            &:after{
+              border-color: #0071e6;
+              background: $white-color;
+            }
+          }
+        }
+      }
+  }
+  .langSelect__control{
+    box-shadow: none;
+    min-height: initial;
+    .langSelect__value-container{
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+  .langSelect__indicators{
+    min-width: 30px;
+    min-height: 36px;
+    padding-top: 3px;
+    justify-content: center;
+  }
+  .langSelect__dropdown-indicator{
+    border-color: $red-color transparent transparent;
+    border-style: solid;
+    border-width: 8px 8px 2.5px;
+    display: inline-block;
+    height: 0;
+    width: 0;
+    padding: 0;
+    @include position(relative);
+    svg{
+      display: none;
+    }
+  }
+
+
+  .blackSelect{
+    &.m_w{
+      @include mobile{width: 80px;}
+    }
+    outline: 0;
+    .langSelect__indicator-separator{
+      display: none;
+    }
+    .langSelect__clear-indicator{
+      display: none;
+    }
+    .langSelect__placeholder, .langSelect__single-value{
+      color: $white-color;
+      @include mobile{font-size: 10px;}
+    }
+    .langSelect__control{
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+    }
+    .langSelect__value-container{
+      //padding: 0;
+    }
+    .langSelect__value-container--is-multi{
+      height: 30px;
+      padding: 0;
+    }
+    .langSelect_disable{opacity: 0.3;}
+
+    &.graySelect{
+      .langSelect__control{
+        background: $black-color9;
+      }
+      .langSelect__single-value{
+        color: $white-color;
+        font: 0.75rem/36px 'Open Sans';
+        opacity: 0.5;
+      }
+    }
+
+    &.whiteSelect{
+      .langSelect__indicators{
+        min-width: 36px;
+        min-height: 34px;
+        border-left: 1px solid #ccc;
+      }
+      border: 1px solid #ced4da;
+      .langSelect__placeholder, .langSelect__single-value{
+        color: #ccc;
+        font: 0.75rem 'Open Sans';
+      }
+    }
+  }
+}

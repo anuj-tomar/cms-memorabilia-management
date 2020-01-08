@@ -1,0 +1,202 @@
+@import 'Variable';
+@import 'mixIn';
+@import 'screen';
+
+.quorum_new{
+    padding: 20px 30px;
+    .tab-scroll{
+        max-height: calc(100vh - 80px);
+        overflow: auto;
+        padding: 0 10px 0 0;
+        margin-right: 15px;
+    }
+    .tabs{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 15px;
+        font: 1.25rem 'Open Sans';
+        color: $white-color;
+        background-color: #bfbfbf;
+        border: 2px solid #7f7f7f;
+        cursor: pointer;
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        margin-bottom: 10px;
+        &:hover{
+            background-color: #7f7f7f;
+            text-decoration: none;
+        }
+        &.tab-square{
+            max-width: calc(50% - 10px) !important;
+            width: 100%;
+            padding: 15px 50px;
+            margin: 0 5px 10px;
+        }
+        &.sp{margin: 0 15px}
+        &.active{
+            background-color: #548235;
+            border: 1px solid #548235;
+        }
+    }
+    .current_time{
+        font: 2rem 'Open Sans';
+        color: $white-color;
+    }
+    .w360{width: 360px}
+    
+    //Table
+    .table_scroll{
+        overflow-y: auto;
+        height: calc(100vh - 80px);
+    }
+    .fixed_header{
+        width: 400px;
+        table-layout: fixed;
+        border-collapse: collapse;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        color: $white-color;
+    }
+    th {
+    background-color: $black-color;
+    padding: 8px 15px;
+    font-family: 'Open Sans';
+    }
+    td {
+    padding: 3px 15px;
+    }
+    tr:nth-child(odd){background-color: #404040;}
+
+    // Home
+    .new_home{
+        .txt_break{padding: 0 70px}
+    }
+
+    // check-in
+    .checkedin{
+        .checkedin_data{
+            border-radius: 10px;
+            font: 1rem 'Open Sans';
+            padding: 10px;
+            color: $white-color;
+            background-color: $gray-color7;
+            width: 100%;
+            .mr10{margin-right: 10px}
+            .btn{
+                background-color: $white-color;
+                color: rgba(0,0,0,0.5);
+                font: 15px 'Open Sans';
+                margin-left: 10px;
+                &:active{color: $black-color}
+            }
+            .react-datepicker-popper{top: -10px !important}
+            .active{color: $white-color;
+                background-color: #548235;
+                border: 1px solid #548235;
+            }
+        }
+        .member_img{
+            max-width: 50%;
+            margin: 25px auto;
+        }
+    }
+    //reservation
+    .reservation{
+        .search_tab{
+            .tabs{
+                width: 65%;
+                margin-left: auto;
+            }
+        }
+        .tab-square{
+            max-width: 31.33% !important;
+            width: 100%;
+            padding: 15px 60px;
+        }
+    }
+}
+
+.rc-time-picker{
+    .rc-time-picker-input{
+        height: 36px;
+        font-size: 0.875rem;
+        color: $black-color;
+        border: 0;
+    }
+    .rc-time-picker-clear{
+        top: 18px;
+        .rc-time-picker-clear-icon{
+        &::after{font-size: 1rem}
+        }
+    }
+}
+.togglebtn{
+    margin: 10px 0;
+    z-index: 0;
+    .btn-secondary{
+        margin-left: 0 !important;
+        padding: 8px 15px;
+        width: 107px;
+    }
+    .active{
+        background: #548235 !important;
+        border-color: #548235 !important;
+        color: $white-color !important;
+    }
+}
+.backBtn{
+    border: 1px solid $white-color;
+    color: $white-color;
+    padding: 7px 15px;
+    font-size: 17px;
+    width: 100px;
+    border-radius: 10px;
+    margin-left: auto;
+    text-align: center;
+    cursor: pointer;
+    &:hover{
+        background: $white-color;
+        transition: 0.5s ease-in-out;
+        color: $black-color;
+    }
+}
+
+.scroll-global{
+    max-height: calc(100vh - 170px);
+    overflow: auto;
+    padding-right: 7px;
+}
+
+
+input{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: $white-color;
+    font-size: 0.875rem;
+    color: $black-color;
+    width: 100%;
+    height: 36px;
+    margin: 10px 0;
+}
+.checkIn-search{
+    .chips{
+        background: transparent;
+        .auto-suggest {
+            margin-top: -13px;
+            border-radius: 0;
+        }
+    }
+}
+
+.modal{
+    .modal-footer{
+        justify-content: center;
+        border-top: 0;
+    }
+}

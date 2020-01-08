@@ -1,0 +1,95 @@
+@import 'Variable';
+
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+
+.calendar {
+    border: 1px solid $gray-color8;
+    border-radius: 3px;
+    max-width: 370px;
+    margin: 7% auto;
+    background-color: $black-color;
+    min-height: 280px;
+}
+.month {
+  padding: 15px 70px;
+  width: 100%;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: #777;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.month .prev {
+  float: left;
+  cursor: pointer;
+}
+
+.month .next {
+  float: right;
+  cursor: pointer;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0 10px 15px;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: $gray-color7;
+  font-weight: bold;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0 10px 15px;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font: 14px 'Open Sans';
+  color: $gray-color7;
+  cursor: pointer;
+}
+
+.days li .active {
+  padding: 5px;
+  background-color: $gray-color8 !important;
+  .disable{
+    color: #495057 !important
+  }
+}
+
+.days li .disable {
+    color: #495057 !important;
+    cursor: auto;
+  }
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+  .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+  .weekdays li, .days li {width: 12.5%;}
+  .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+  .weekdays li, .days li {width: 12.2%;}
+}

@@ -1,0 +1,42 @@
+@import 'Variable';
+@import 'mixIn';
+
+.appearance{
+    @include vendor-prefixes(appearance, none);
+    padding-right: 20px;
+}
+
+select{
+    &.form-control:not([size]):not([multiple]){
+        @include vendor-prefixes(border-radius, 0);
+        //font-size: 0.75rem;
+        height: 36px;
+    }
+}
+
+.select-result{
+    @include desktop{
+        width: 160px!important;
+    }
+    // @extend .appearance;
+    // &:after{
+    //     content: '1';
+    //     @include triangle(top, $size: 6px);
+    //     border-top: 6px solid $red-color;
+    // }
+}
+
+.custom-select{
+    @extend .appearance;
+    border-radius: 0;
+    font-size : 0.75rem;
+    height: 36px;
+    border-radius: 3px;
+    &:hover, &:focus{
+        box-shadow: none;
+        border-color: #ced4da;
+    }
+    &.form-select{
+        line-height: 15px;
+    }
+}
