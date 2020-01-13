@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
 import { validate } from '../utils/validation';
 import { loginSubmit } from '../actions';
 
@@ -143,9 +142,9 @@ class Login extends Component {
       <div className=''>
         <div className='container'>
           <div className='home'>
-            <div className='logo'></div>
-            <p className='title'>THE QUORUM CLUB</p>
-            <p className='title'>CMS</p>
+            {/* <div className='logo'></div> */}
+            <h3 className='title'>The Incred Merchant Management System</h3>
+            <p className='title'>Incred Access</p>
             <div className='login-form'>
               <div>
                 {section == 'phone' &&
